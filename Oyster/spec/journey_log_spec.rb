@@ -19,13 +19,27 @@ describe JourneyLog do
     end
    
     describe '#start' do
-    it 'starts a new journey' do
-    expect(journey_log.start(entry_station)).to be_a(Journey)
-    end
+      it 'starts a new journey' do
+        subject.start("Bank")
+        subject.current_journey
+        expect(subject.current_journey).to be_a(Journey)
+      end
     end
 
-    desrcibe '#current_journey' do
-    it 'should return an incomplete journey'
+    # describe '#current_journey' do
+    #   it 'should return an incomplete journey' do
+    #     subject.start("Bank")
+    #     expect (subject.current_journey.exit_station).to be_nil
+    #   end
+    # end
+    
+    describe '#finish' do
+      it 'add an exit station to the current journey' do
+        subject.start("Bank")
+        p subject.current_journey
+        subject.finish("Westminster")
+        p subject.current_journey
+        expect(subject.current_journey.exit_station).to eq "Westminster"
+      end
     end
-  
   end
