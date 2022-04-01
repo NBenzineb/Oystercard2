@@ -18,7 +18,14 @@ describe JourneyLog do
       end
     end
    
-    
+    describe '#start' do
+    it 'starts a new journey' do
+    expect(journey_log.start(entry_station)).to be_a(Journey)
+    end
+    end
 
+    desrcibe '#current_journey' do
+    it 'should return an incomplete journey'
+    end
   
   end

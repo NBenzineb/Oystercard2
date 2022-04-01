@@ -4,7 +4,7 @@ require_relative './journey_log.rb'
 
 class Oystercard
 
-  attr_reader :balance, :journeys, :current_journey, :journey_log
+  attr_reader :balance, :journeys, :current_journey, :journey_log, :cr
 
   MAX_BALANCE = 90
 
@@ -32,15 +32,18 @@ class Oystercard
     @current_journey ? complete_current_journey(exit_station) : no_current_journey_penalty(exit_station)
   end
 
-  private
+
 
   def create_current_journey
     @current_journey = Journey.new
   end
 
+  
   def empty_current_journey
     @current_journey = nil
   end
+
+  # private
 
   def add_journey
     @journeys << @current_journey
