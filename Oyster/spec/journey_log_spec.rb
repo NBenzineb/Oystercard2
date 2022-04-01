@@ -5,8 +5,6 @@ describe JourneyLog do
     let(:journey_class) { Journey }
     subject(:journey_log) { described_class.new(journey_class) }
   
-  
-  
     describe "#initialize" do
       context "testing #new on class" do
         subject(:journey_log_class) { described_class }
@@ -19,7 +17,8 @@ describe JourneyLog do
         expect(journey_log.journeys).to be_empty
       end
     end
-  
+   
+    
 
   
   end
